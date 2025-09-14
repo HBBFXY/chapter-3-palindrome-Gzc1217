@@ -1,8 +1,19 @@
-num = input("请输入一个 5 位数：")
-if len(num) != 5 or not num.isdigit():
-    print("输入不是有效的 5 位数！")
-else:
-    if num == num[::-1]:
-        print(f"{num} 是回文数")
+def syetem_huiwen(number):
+    num_str = str(number)
+
+    if len(num_str) != 5:
+        return False
+    
+    return num_str == num_str[::-1]
+
+try:
+    input_num = int(input("请输入一个5位数："))
+    if (10000 <= input_num <= 99999)or(input_num == 00000):
+        if syetem_huiwen(input_num):
+            print(f"{input_num}是回文数")
+        else:
+            print(f"{input_num}不是回文数")
     else:
-        print(f"{num} 不是回文数")
+        print("输入错误: 请输入5位数字")
+except ValueError:
+    print("输入错误: 请输入5位数字")
